@@ -1,8 +1,18 @@
-import React from "react";
-import { Button } from "./components/ui/button";
+import { UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { dark } from "@clerk/themes";
+import { redirect } from "next/navigation";
 
-const page = () => {
-  return <Button>Hello world</Button>;
+const Page = async () => {
+  const { userId } = await auth();
+  if (!userId) {
+    redirect("/login");
+  }
+  return (
+    <div className="flex h-full items-center justify-center">
+      <UserButton showName />
+    </div>
+  );
 };
 
-export default page;
+export default Page;

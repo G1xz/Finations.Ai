@@ -2,8 +2,15 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "../components/ui/button";
 import { LogInIcon } from "lucide-react";
+import { SignInButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-function LoginPage() {
+const LoginPage = async () => {
+  const { userId } = await auth();
+  if (userId) {
+    redirect("/");
+  }
   return (
     <div className="grid grid-cols-2 h-full">
       {/*ESQUERDA*/}
@@ -24,10 +31,12 @@ function LoginPage() {
           para monitorar suas motivacoes, oferecer insights personalizados,
           facilitando o controle do seu orcamento.
         </p>
-        <Button variant={"outline"}>
-          <LogInIcon />
-          Fazer login ou criar conta
-        </Button>
+        <SignInButton>
+          <Button variant={"outline"}>
+            <LogInIcon />
+            Fazer login ou criar conta
+          </Button>
+        </SignInButton>
       </div>
       {/*DIREITA*/}
       <div className="relative h-full w-full">
@@ -40,6 +49,6 @@ function LoginPage() {
       </div>
     </div>
   );
-}
+};
 
 export default LoginPage;
