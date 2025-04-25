@@ -25,7 +25,7 @@ const LoginPage = async () => {
           />
           <h1 className="text-4xl font-bold mb-3">FINATIONS.AI</h1>
         </div>
-        <h1>Bem-vindo</h1>
+        <h1 className="mb-3 text-4xl font-bold">Bem-vindo</h1>
         <p className="text-muted-foreground mb-8">
           A finations ai e uma plataforma de gestao finaceira que utiliza IA
           para monitorar suas motivacoes, oferecer insights personalizados,
@@ -44,7 +44,7 @@ const LoginPage = async () => {
           src="/login.png"
           alt="Faca login"
           fill
-          className="object-coverf"
+          className="object-cover"
         />
       </div>
     </div>
