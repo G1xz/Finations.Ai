@@ -91,7 +91,7 @@ export const TRANSACTION_CATEGORY_OPTIONS = [
     label: TRANSACTION_CATEGORY_LABELS[TransactionCategory.FOOD],
   },
   {
-    value: TransactionCategory.HEALT,
+    value: TransactionCategory.HEALTH,
     label: TRANSACTION_CATEGORY_LABELS[TransactionCategory.HEALTH],
   },
   {
